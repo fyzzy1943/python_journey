@@ -22,3 +22,4 @@ d1[(1,)] = (1,)
 print(d1)
 
 print('啊' in s1)
+print(d1.items())
