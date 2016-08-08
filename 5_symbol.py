@@ -20,7 +20,22 @@ print(abs(-1))
 print(iabs(-1))
 
 # print(abs('A'))
-print(iabs('A'))
+# print(iabs('A'))
+
+print(isinstance(1, ()))
 
 def doNothing():
     pass
+
+x, y = (1, 2)
+print(x, y)
+
+import math
+
+def move(x, y, step, angle=0):
+    nx = x + step * math.cos(angle)
+    ny = y + step * math.sin(angle)
+    return nx, ny
+
+x, y = move(50, 30, 60, math.pi/6)
+print(x,y)
