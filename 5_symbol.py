@@ -39,3 +39,6 @@ def move(x, y, step, angle=0):
 
 x, y = move(50, 30, 60, math.pi/6)
 print(x,y)
+
+def quadratic(a, b, c):
+
