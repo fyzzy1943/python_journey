@@ -162,4 +162,45 @@ foo(sa='assassin', city='haven')
 
 ### a split line for Gauss ###
 
+def foo(*, city, **kwargs):
+    print(city, kwargs)
 
+foo(a='321', city='fu', b='654')
+
+def factorial(n):
+    if n==1:
+        return n
+    return factorial(n-1)*n
+
+print(factorial(1))
+print(factorial(100))
+
+def fact(n):
+    return fact_iter(n, 1)
+
+def fact_iter(num, product):
+    if num==1:
+        return product
+    return fact_iter(num-1, num*product)
+
+print(fact(100))
+
+x='x'
+def hanoi(n, a, b, c):
+    print(x)
+    if n==1:
+        return
+
+hanoi(1,2,3,4)
+
+def move(n, a, b, c):
+    if n == 1:
+        print('%d:%s --> %s' % (n, a, c)) # 只有1个盘子，A --> C
+    else:
+        move(n-1, a, c, b) # 有n个盘子，借助于C，A(n-1) --> B
+        move(1, a, b, c)   # 有n个盘子，A(1) --> C
+        move(n-1, b, a, c) # 有n个盘子，借助于A，B(n-1) --> C
+
+move(3, 'A', 'B', 'C')
+
+### I can't understand this algorithm, so depressed ###
