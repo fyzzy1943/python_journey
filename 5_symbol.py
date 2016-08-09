@@ -90,6 +90,9 @@ print(add_end([1]))
 print(add_end())
 
 def times_add(*numbers):
+    if len(numbers)==0:
+        return 0
+
     sum = 1
     for n in numbers:
         sum = sum*n
@@ -97,3 +100,66 @@ def times_add(*numbers):
 
 print(times_add(1, 2, 3, 4))
 print(times_add())
+
+fruit = ('apple', 'peach')
+print(*fruit)
+
+print(times_add(*(1, 2, 3), *(1, 2, 2)))
+print((1, 2)*2+(3, 2)+(1,))
+
+attr = {'height':170,'weight':85}
+print(attr)
+print(*attr)
+# print(**attr)
+
+def person(name, **kw):
+    print('name:', name, ';kw:', kw)
+
+person('einstein')
+person('einstein', what='fuk', man='mercury')
+person('faraday', **attr)
+
+def foo(*, city, job):
+    print(city, job)
+
+foo(city='B', job='C')
+foo(job='D', city='A')
+
+def foo(*args, job):
+    for arg in args:
+        print(arg,end=' ')
+    print(job)
+
+foo('f', 'u', 'k', job='god')
+
+def foo(*args, job, **kwargs):
+    print(args, job, kwargs)
+
+foo(1, 2, job=3321, **attr)
+
+def foo(name, *, city='pk', job='saber'):
+    print(name, city, job)
+
+foo('arthur')
+foo('x', job='assassin')
+
+def foo(name, city='england', job='archer'):
+    print(name, city, job)
+
+foo('666')
+foo(666, job='lancer')
+foo('saber', 'jp')
+
+def foo(name='joker', *args, job='engineer', **kwargs):
+    print(name, args, job, kwargs)
+
+foo()
+
+def foo(*, city='england', **kwargs):
+    print(city, kwargs)
+
+foo(sa='assassin', city='haven')
+
+### a split line for Gauss ###
+
+
