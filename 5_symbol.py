@@ -55,3 +55,45 @@ print(quadratic(2, 3, 1))
 print(quadratic(1, 3, -4))
 
 ### magnificent split line ###
+
+def ipow(x, n=2):
+    sum = 1
+    while n>0:
+        n = n-1
+        sum = sum * x
+    return sum
+
+x = 3
+print(ipow(x, 4))
+print(x)
+
+def add_end(L=[]):
+    L.append('end')
+    return L
+
+print(add_end())
+print(add_end([1]))
+print(add_end())
+print(add_end([1]))
+print(add_end())
+
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('end')
+    return L
+
+print(add_end())
+print(add_end([1]))
+print(add_end())
+print(add_end([1]))
+print(add_end())
+
+def times_add(*numbers):
+    sum = 1
+    for n in numbers:
+        sum = sum*n
+    return sum
+
+print(times_add(1, 2, 3, 4))
+print(times_add())
