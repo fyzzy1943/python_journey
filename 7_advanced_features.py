@@ -66,7 +66,7 @@ print()
 
 def fib(n):
     a, b = 0, 1
-    for i in range(n+1):
+    for i in range(n):
         yield b
         a, b = b, a+b
     return 'done.'
@@ -76,17 +76,37 @@ for _ in G:
     print(_, end=' ')
 print()
 
-def triangles():
-    line = [1]
-    while True:
-        yield line
-        line = [1]+[line[i]+line[i-1] for i in range(1, len(line))]+[1]
-
-n = 0
-for t in triangles():
-    print(t)
-    n = n+1
-    if  n==10:
+G = fib(6)
+while True:
+    try:
+        print('fib', next(G))
+    except StopIteration as e:
+        print('generator return value: ', e.value)
         break
 
+def triangles(n):
+    line = [1]
+    for i in range(n, 1, -1):
+        yield line, i
+        line = [1]+[line[i]+line[i-1] for i in range(1, len(line))]+[1]
 
+for t, s in triangles(10):
+    for space in range(s):
+        print(end=' ')
+    print(*t)
+
+### iterator ###
+from collections import Iterable
+print(isinstance([], Iterable))
+
+# Iterable 是 可迭代对象
+# Iterator 是 迭代器， 可以使用next
+
+from collections import Iterator
+L = iter([1, 2, 3, 4, 5])
+while True:
+    try:
+        x = next(L)
+        print(x)
+    except StopIteration:
+        break
