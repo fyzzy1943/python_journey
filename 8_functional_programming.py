@@ -80,3 +80,25 @@ def str2float(str):
 
 print(str2float('123455.1234'))
 print('str2float(\'123.456\') =', str2float('123.456'))
+
+### filter ###
+def not_empty(s):
+    return s and s.strip()
+
+print(list(filter(not_empty, ['A', '123', '', None])))
+
+print(5//2)
+def is_palindrome(num):
+    # num = str(num)
+    # for i in range(len(num)//2):
+    #     if num[i] != num[-(i+1)]:
+    #         return False
+    # return True
+    return str(num) == str(num)[::-1]
+
+output = filter(is_palindrome, range(1, 1000))
+print(list(output))
+
+s = 'ABCD'
+print(s == s[::-1])
+print(s[::-1])
