@@ -45,7 +45,7 @@ date('july')
 print()
 
 def log(obj):
-    if(isinstance(obj, str)):
+    if isinstance(obj, str):
         def decorator(func):
             @functools.wraps(func)
             def wrapper(*args, **kwargs):
